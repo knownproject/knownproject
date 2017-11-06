@@ -2,31 +2,29 @@
 
 ## General Workflow
 
-1. Fork the repo
-1. Cut a namespaced feature branch from master
-  - bug/...
-  - feat/...
-  - test/...
-  - doc/...
-  - refactor/...
-1. Make commits to your feature branch. Prefix each commit like so:
+#### First Time Setup Steps:
+1. Clone the master repository
+1. Create a working branch (your name) on your local machine
+
+#### Supposing the local repo is already set up
+
+1. Checkout local master branch & fetch origin/master
+1. checkout working branch
+1. Do work on local working branch
+1. Commit work on local working branch. Prefix convention:
   - (feat) Added a new feature
   - (fix) Fixed inconsistent tests [Fixes #0]
   - (refactor) ...
   - (cleanup) ...
   - (test) ...
   - (doc) ...
-1. When you've finished with your fix or feature, Rebase upstream changes into your branch. submit a [pull request][]
-   directly to master. Include a description of your changes.
-1. Your pull request will be reviewed by another maintainer. The point of code
-   reviews is to help keep the codebase clean and of high quality and, equally
-   as important, to help you grow as a programmer. If your code reviewer
-   requests you make a change you don't understand, ask them why.
-1. Fix any issues raised by your code reviwer, and push your fixes as a single
-   new commit.
+1. Checkout local master branch and pull origin/master
+1. Checkout local working branch and git merge master
+1. Push to your remote branch: git push origin YOUR_NAME
+1. Submit pull request to remote master branch
 1. Once the pull request has been reviewed, it will be merged by another member of the team. Do not merge your own commits.
 
-## Detailed Workflow
+<!-- ## Detailed Workflow
 
 ### Fork the repo
 
@@ -53,7 +51,7 @@ These commands will help you do this:
 git checkout -b `your-branch-name`
 ```
 
-### Make commits to your feature branch. 
+### Make commits to your feature branch.
 
 Prefix each commit like so
   - (feat) Added a new feature
@@ -137,7 +135,7 @@ someone will look at your code again. If they like it, it will get merged,
 else, just repeat again.
 
 Thanks for contributing!
-
+ -->
 ### Guidelines
 
 1. Uphold the current code standard:
