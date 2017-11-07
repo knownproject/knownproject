@@ -1,12 +1,25 @@
 import React from 'react';
 import ListItem from './CompanyListItem.jsx';
 
-const CompanyList = (props) => (
-  <div>
-    <h4> List Component </h4>
-    There are { props.items.length } items.
-    { props.items.map(item => <CompanyListItem item={item}/>)}
+var CompanyList = ({company, handleCompanyListEntryTitleClick}) => (
+  <div className="company-list">
+    {companies.map((company) =>
+      <companyListEntry
+        key={company.etag}
+        company={company}
+        handleCompanyListEntryTitleClick={handleCompanyListEntryTitleClick}
+      />
+    )}
   </div>
-)
+);
+
+
+CompanyList.propTypes = {
+  companies: React.PropTypes.array.isRequired
+};
+
+
+window.VideoList = VideoList;
 
 export default CompanyList;
+
