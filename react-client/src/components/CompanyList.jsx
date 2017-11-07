@@ -1,28 +1,17 @@
-
-
-// remain stateless
-
 import React from 'react';
 import CompanyListItem from './CompanyListItem.jsx';
 
-var CompanyList = ({company, handleCompanyEntryClick}) => (
+var CompanyList = ({companies, handleCompanyItemClick}) => (
   <div className="company-list">
     {companies.map((company) =>
-      <companyListEntry
-        key={company.etag}
+      <companyListItem
+        key={company.uuid}
         company={company}
-        handleCompanyEntryClick={handleCompanyEntryClick}
+        handleCompanyItemClick={handleCompanyItemClick}
       />
     )}
   </div>
 );
-
-
-CompanyList.propTypes = {
-  companies: React.PropTypes.array.isRequired
-};
-
-// window.VideoList = VideoList;
 
 export default CompanyList;
 
