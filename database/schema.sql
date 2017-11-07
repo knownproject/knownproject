@@ -13,42 +13,39 @@ CREATE TABLE users (
   PRIMARY KEY(id)
 );
 
+CREATE TABLE companies (
+   company_name VARCHAR(80) CHARACTER SET utf8,
+   domain VARCHAR(25) CHARACTER SET utf8,
+   country_code VARCHAR(3) CHARACTER SET utf8,
+   state_code VARCHAR(2) CHARACTER SET utf8,
+   region VARCHAR(16) CHARACTER SET utf8,
+   city VARCHAR(17) CHARACTER SET utf8,
+   status VARCHAR(9) CHARACTER SET utf8,
+   short_description VARCHAR(140) CHARACTER SET utf8,
+   category_list VARCHAR(90) CHARACTER SET utf8,
+   funding_rounds INT,
+   funding_total_usd INT,
+   founded_on DATETIME,
+   first_funding_on DATETIME,
+   last_funding_on DATETIME,
+   closed_on INT,
+   email VARCHAR(31) CHARACTER SET utf8,
+   phone VARCHAR(15) CHARACTER SET utf8,
+   cb_url VARCHAR(61) CHARACTER SET utf8,
+   twitter_url VARCHAR(38) CHARACTER SET utf8,
+   facebook_url VARCHAR(58) CHARACTER SET utf8,
+   id VARCHAR(50) CHARACTER SET utf8,
+   PRIMARY KEY (id)
+);
+
 CREATE TABLE favorites (
   id int NOT NULL AUTO_INCREMENT,
   user_id int,
   company_id int,
   notes varchar(255),
   PRIMARY KEY (id),
-  FOREIGN KEY (user_id)
-    REFERENCES users (id)
-  FOREIGN KEY (company_id)
-    REFERENCES companies (`uuid`)
-);
-
-
-CREATE TABLE companies (
-   `company_name` VARCHAR(80) CHARACTER SET utf8,
-   `domain` VARCHAR(25) CHARACTER SET utf8,
-   `country_code` VARCHAR(3) CHARACTER SET utf8,
-   `state_code` VARCHAR(2) CHARACTER SET utf8,
-   `region` VARCHAR(16) CHARACTER SET utf8,
-   `city` VARCHAR(17) CHARACTER SET utf8,
-   `status` VARCHAR(9) CHARACTER SET utf8,
-   `short_description` VARCHAR(140) CHARACTER SET utf8,
-   `category_list` VARCHAR(90) CHARACTER SET utf8,
-   `funding_rounds` INT,
-   `funding_total_usd` INT,
-   `founded_on` DATETIME,
-   `first_funding_on` DATETIME,
-   `last_funding_on` DATETIME,
-   `closed_on` INT,
-   `email` VARCHAR(31) CHARACTER SET utf8,
-   `phone` VARCHAR(15) CHARACTER SET utf8,
-   `cb_url` VARCHAR(61) CHARACTER SET utf8,
-   `twitter_url` VARCHAR(38) CHARACTER SET utf8,
-   `facebook_url` VARCHAR(58) CHARACTER SET utf8,
-   `uuid` VARCHAR(38) CHARACTER SET utf8,
-   PRIMARY KEY (`uuid`)
+  FOREIGN KEY (user_id) REFERENCES users (id)
+  FOREIGN KEY (company_id) REFERENCES companies (id)
 );
 
 INSERT INTO companies VALUES ('Crimson Hexagon','crimsonhexagon.com','USA','MA','Boston','Boston','operating','Crimson Hexagon delivers social media monitoring analysis services about brands or issues.','Analytics|Brand Marketing|Social Media Management',6, 31158362 ,'2007-08-01 00:00:00','2009-09-09 00:00:00','2016-03-08 00:00:00',NULL,'info@crimsonhexagon.com',NULL,'https://www.crunchbase.com/organization/crimson-hexagon','https://www.twitter.com/crimsonhexagon','http://www.facebook.com/pages/Crimson-Hexagon/127737499873','5bd1ba45-c683-d798-1619-6fbbd444f496');
