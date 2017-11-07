@@ -1,5 +1,5 @@
 import React from 'react';
-import ListItem from './CompanyListItem.jsx';
+import CompanyListItem from './CompanyListItem.jsx';
 
 var CompanyList = ({company, handleCompanyListEntryTitleClick}) => (
   <div className="company-list">
@@ -17,7 +17,6 @@ var CompanyList = ({company, handleCompanyListEntryTitleClick}) => (
 CompanyList.propTypes = {
   companies: React.PropTypes.array.isRequired
 };
-
 
 window.VideoList = VideoList;
 
