@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-// import CompanyList from './components/CompanyList.jsx';
+import CompanyList from './components/CompanyList.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,34 +8,41 @@ class App extends React.Component {
 
     this.state = {
       companies: [],
-      // currentCompany: companies[0]
+      currentCompany: companies[0]
     }
   }
 
-  handleCompanyListTitleClick(company) {
+  handleCompanyEntryClick(company) {
     this.setState({
       currentCompany: company
     });
   }
 
-  // componentDidMount() {
-  //   $.ajax({
-  //     url: '/companies', 
-  //     success: (data) => {
-  //       this.setState({
-  //         companies: data
-  //       })
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     }
-  //   });
-  // }
+  componentDidMount() {
+    $.ajax({
+      url: '/companies', 
+      success: (data) => {
+        console.log(data);
+        this.setState({
+          companies: data
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+  }
 
   render() {
     return (
       <div>
-        Hello!
+        <Search />
+        <div>{props}</div>
+        <CompanyList 
+          companies={this.state.companies}
+          handleCompanyEntryClick={this.handleCompanyEntryClick.bind(this)}
+        />
+        <CompanyProfile />
       </div>
     );
   }
@@ -44,12 +51,6 @@ class App extends React.Component {
 
 
 /*
-        <Search />
-        <CompanyList 
-          companies={this.state.companies}
-          handleCompanyListTitleClick{this.handleVideoListEntryTitleClick.bind(this)}
-        />
-        <CompanyProfile />
     return (
       <div>
         <nav className="navbar">
