@@ -17,4 +17,15 @@ var selectAll = function(callback) {
   });
 };
 
+var selectCoNames = function(callback) {
+  connection.query('SELECT crunchbase_uuid, name FROM companies', function(err, results, fields) {
+    if (err) {
+      callback(err, null)
+    } else {
+      callback(null, results)
+    }
+  });
+}
+
+module.exports.selectCoNames = selectCoNames;
 module.exports.selectAll = selectAll;
