@@ -1,8 +1,13 @@
+
+// remain stateless
+
 import React from 'react';
 
-const CompanyListItem = (props) => (
-  <div>
-    { props.item.description }
+const CompanyListItem = ({company, handleCompanyEntryClick}) => (
+  <div
+    onClick={handleCompanyEntryClick}
+  >
+    { company.name } ??????
   </div>
 )
 
