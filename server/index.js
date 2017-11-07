@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var companies = require('../database');
 
 var app = express();
 
@@ -8,9 +9,19 @@ app.use(express.static(path.join(__dirname, '../react-client/dist/')));
 app.use(bodyParser.json());
 
 app.get('/companies', function (req, res) {
-  items.selectAll(function(err, data) {
+  companies.selectAll(function(err, data) {
     if(err) {
       res.sendStatus(500);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+app.get('/names', function(req, res) {
+  companies.selectCoNames(function(err, data) {
+    if (err) {
+      res.sendStatus(500)
     } else {
       res.json(data);
     }
