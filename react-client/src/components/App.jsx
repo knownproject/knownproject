@@ -1,18 +1,21 @@
 import React from 'react';
 import $ from 'jquery';
-import CompanyList from './components/CompanyList.jsx';
+import CompanyList from './CompanyList.jsx';
+import Search from './Search.jsx';
+import CompanyProfile from './CompanyProfile.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(props);
 
     this.state = {
       companies: [],
-      currentCompany: companies[0]
+      currentCompany: {name: 'Pfizer'}
     }
   }
 
-  handleCompanyEntryClick(company) {
+  handleCompanyItemClick(company) {
     this.setState({
       currentCompany: company
     });
@@ -37,57 +40,17 @@ class App extends React.Component {
     return (
       <div>
         <Search />
-        <div>{props}</div>
         <CompanyList 
           companies={this.state.companies}
-          handleCompanyEntryClick={this.handleCompanyEntryClick.bind(this)}
+          handleCompanyItemClick={this.handleCompanyItemClick.bind(this)}
         />
-        <CompanyProfile />
+        <CompanyProfile 
+          company={this.state.currentCompany}
+        />
       </div>
     );
   }
 }
-
-
-
-/*
-    return (
-      <div>
-        <nav className="navbar">
-        <div className="row">
-          <div className="col-md-6 offset-md-3">
-            <Search
-              handleSearchInputChange={this.getYouTubeVideos.bind(this)}
-            />
-          </div>
-        </div>
-        </nav>
-        <div className="row">
-          <div className="col-md-7">
-            <VideoPlayer video={this.state.currentVideo}/>
-          </div>
-          <div className="col-md-5">
-          {
-            * It's very important to bind the context of this callback.
-            * Also acceptable is to pass a anonymous function expression with a fat
-            * arrow that inherits the surrounding lexical `this` context:
-            *
-            *   handleVideoListEntryTitleClick={(video) => this.onVideoListEntryClick(video)}
-            *                                  - or -
-            *   handleVideoListEntryTitleClick={(currentVideo) => this.setState({currentVideo})}
-            *
-            }
-            <VideoList
-              handleVideoListEntryTitleClick={this.handleVideoListEntryTitleClick.bind(this)}
-              videos={this.state.videos}
-            />
-          </div>
-        </div>
-      </div>
-    );
-
-    */
-
 
 export default App;
 
