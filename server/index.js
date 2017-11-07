@@ -1,9 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 var app = express();
 
-app.use(express.static(__dirname + '/../react-client/dist'));
+app.use(express.static(path.join(__dirname, '../react-client/dist/')));
 app.use(bodyParser.json());
 
 app.get('/companies', function (req, res) {
