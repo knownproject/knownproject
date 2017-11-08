@@ -1,0 +1,7 @@
+.company-list {
+	float: left;
+	overflow: scroll;
+	height: 614px;
+	width: 20%;
+	margin-right: 50px;
+}
