@@ -10,7 +10,7 @@ class App extends React.Component {
 
     this.state = {
       companies: [],
-      currentCompany: {name: 'Pfizer'}
+      currentCompany: null
     }
     this.handleCompanyItemClick = this.handleCompanyItemClick.bind(this);
   }
@@ -24,11 +24,12 @@ class App extends React.Component {
   componentDidMount() {
     var context = this;
     $.ajax({
-      url: '/companies', 
+      url: '/companies',
       success: (data) => {
-        console.log('success', data),
+        console.log('ajax success data: ',data)
         context.setState({
-          companies: data
+          companies: data,
+          currentCompany: data[0]
         })
       },
       error: (err) => {
@@ -38,18 +39,30 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <Search />
-        <CompanyList 
-          companies={this.state.companies}
-          handleCompanyItemClick={this.handleCompanyItemClick}
-        />
-        <CompanyProfile 
-          company={this.state.currentCompany}
-        />
-      </div>
-    );
+    if(this.state.currentCompany) {
+      return (
+        <div>
+          <Search />
+          <CompanyList 
+            companies={this.state.companies}
+            handleCompanyItemClick={this.handleCompanyItemClick}
+          />
+          <CompanyProfile 
+            currentCompany={this.state.currentCompany}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Search />
+          <CompanyList 
+            companies={this.state.companies}
+            handleCompanyItemClick={this.handleCompanyItemClick}
+          />
+        </div>
+      );
+    }
   }
 }
 
