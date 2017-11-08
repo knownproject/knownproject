@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
 });
 
 var selectAll = function(callback) {
-  connection.query('SELECT * FROM companies LIMIT 50', function(err, results, fields) {
+  connection.query('SELECT * FROM companies ORDER BY name LIMIT 50', function(err, results, fields) {
     if (err) {
       console.log('ERROR: ', err)
       callback(err, null)
