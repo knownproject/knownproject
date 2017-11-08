@@ -4,7 +4,7 @@
 import React from 'react';
 
 const CompanyListItem = (props) => (
-  <div onClick={handleCompanyItemClick}>{props.company.name}</div>
+  <div onClick={props.handleCompanyItemClick}>{props.company}</div>
 )
 
 export default CompanyListItem;

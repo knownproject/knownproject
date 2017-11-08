@@ -5,11 +5,11 @@ var CompanyList = (props) => (
   console.log(props),
   <div className="company-list">
 
-    {props.map((company) =>
-      <companyListItem
+    {props.companies.map((company) =>
+      <CompanyListItem
         key={company.crunchbase_uuid}
-        company={company}
-        handleCompanyItemClick={handleCompanyItemClick}
+        company={company.name}
+        handleCompanyItemClick={props.handleCompanyItemClick}
       />
     )}
 

@@ -12,6 +12,7 @@ class App extends React.Component {
       companies: [],
       currentCompany: {name: 'Pfizer'}
     }
+    this.handleCompanyItemClick = this.handleCompanyItemClick.bind(this);
   }
 
   handleCompanyItemClick(company) {
@@ -21,11 +22,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    var context = this;
     $.ajax({
       url: '/companies', 
       success: (data) => {
         console.log('success', data),
-        this.setState({
+        context.setState({
           companies: data
         })
       },
@@ -41,7 +43,7 @@ class App extends React.Component {
         <Search />
         <CompanyList 
           companies={this.state.companies}
-          handleCompanyItemClick={this.handleCompanyItemClick.bind(this)}
+          handleCompanyItemClick={this.handleCompanyItemClick}
         />
         <CompanyProfile 
           company={this.state.currentCompany}
