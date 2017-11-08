@@ -7,12 +7,12 @@ import CompanyProfile from './CompanyProfile.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(props);
 
     this.state = {
       companies: [],
       currentCompany: {name: 'Pfizer'}
     }
+    this.handleCompanyItemClick = this.handleCompanyItemClick.bind(this);
   }
 
   handleCompanyItemClick(company) {
@@ -22,11 +22,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    var context = this;
     $.ajax({
       url: '/companies', 
       success: (data) => {
-        console.log(data);
-        this.setState({
+        console.log('success', data),
+        context.setState({
           companies: data
         })
       },
@@ -42,7 +43,7 @@ class App extends React.Component {
         <Search />
         <CompanyList 
           companies={this.state.companies}
-          handleCompanyItemClick={this.handleCompanyItemClick.bind(this)}
+          handleCompanyItemClick={this.handleCompanyItemClick}
         />
         <CompanyProfile 
           company={this.state.currentCompany}
