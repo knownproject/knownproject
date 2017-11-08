@@ -27,12 +27,9 @@ var selectCoNames = function(callback) {
   });
 }
 
-<<<<<<< HEAD
 // var getCoProfile = function(callback) {
 //   connection.query('SELECT name, homepage_url, facebook_url, twitter_url, linkedin_url, location_city, location_region, short_description, category_list, funding_total_usd, last_funding_at FROM companies')
 // }
 
-=======
->>>>>>> 35fb0e10d983bacb8fc3efbc40df1e810d63d78c
 module.exports.selectCoNames = selectCoNames;
 module.exports.selectAll = selectAll;
