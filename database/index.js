@@ -1,5 +1,4 @@
 var mysql = require('mysql');
-var app = require('app');
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -28,9 +27,9 @@ var selectCoNames = function(callback) {
   });
 }
 
-var getCoProfile = function(callback) {
-  connection.query('SELECT name, homepage_url, facebook_url, twitter_url, linkedin_url, location_city, location_region, short_description, category_list, funding_total_usd, last_funding_at FROM companies')
-}
+// var getCoProfile = function(callback) {
+//   connection.query('SELECT name, homepage_url, facebook_url, twitter_url, linkedin_url, location_city, location_region, short_description, category_list, funding_total_usd, last_funding_at FROM companies')
+// }
 
 module.exports.selectCoNames = selectCoNames;
 module.exports.selectAll = selectAll;
