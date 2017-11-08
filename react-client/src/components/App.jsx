@@ -7,7 +7,6 @@ import CompanyProfile from './CompanyProfile.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(props);
 
     this.state = {
       companies: [],
@@ -25,7 +24,7 @@ class App extends React.Component {
     $.ajax({
       url: '/companies', 
       success: (data) => {
-        console.log(data);
+        console.log('success', data),
         this.setState({
           companies: data
         })

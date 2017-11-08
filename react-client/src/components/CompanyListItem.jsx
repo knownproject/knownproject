@@ -3,8 +3,8 @@
 
 import React from 'react';
 
-const CompanyListItem = ({company, handleCompanyItemClick}) => (
-  <div onClick={handleCompanyItemClick}>{company.name}</div>
+const CompanyListItem = (props) => (
+  <div onClick={handleCompanyItemClick}>{props.company.name}</div>
 )
 
 export default CompanyListItem;
