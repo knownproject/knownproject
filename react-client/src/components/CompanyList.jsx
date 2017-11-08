@@ -2,7 +2,6 @@ import React from 'react';
 import CompanyListItem from './CompanyListItem.jsx';
 
 var CompanyList = (props) => (
-  console.log(props),
   <div className="company-list">
 
     {props.companies.map((company) =>
