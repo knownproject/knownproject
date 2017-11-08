@@ -18,7 +18,11 @@ app.get('/companies', function (req, res) {
   });
 });
 
+<<<<<<< HEAD
 app.get('/companyNames', function(req, res) {
+=======
+app.get('/names', function(req, res) {
+>>>>>>> 35fb0e10d983bacb8fc3efbc40df1e810d63d78c
   companies.selectCoNames(function(err, data) {
     if (err) {
       res.sendStatus(500)
