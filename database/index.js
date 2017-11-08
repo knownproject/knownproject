@@ -12,7 +12,6 @@ var companyQuery = function(limit, searchText, callback) {
     searchString += `WHERE name LIKE "%${searchText}%" `;
   }
   searchString += `ORDER BY count DESC LIMIT ${limit};`
-  console.log(searchString)
   connection.query(searchString, function(err, results, fields) {
     if (err) {
       console.log('ERROR: ', err)
