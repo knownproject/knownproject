@@ -25,6 +25,9 @@ class App extends React.Component {
     var context = this;
     $.ajax({
       url: '/companies',
+      data: {
+        searchText: 'tech',
+      },
       success: (data) => {
         console.log('ajax success data: ',data)
         context.setState({

@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
-var companies = require('../database');
+var db = require('../database');
 
 var app = express();
 
@@ -10,8 +10,9 @@ app.use(bodyParser.json());
 
 app.get('/companies', function (req, res) {
   var limit = req.query.limit || 50;
-  companies.db_query(limit, function(err, data) {
-    if(err) {
+  var searchText = req.query.searchText || null;
+  db.companyQuery(limit, searchText, function(err, data) {
+    if (err) {
       res.sendStatus(500);
     } else {
       res.json(data);
@@ -19,15 +20,15 @@ app.get('/companies', function (req, res) {
   });
 });
 
-app.get('/names', function(req, res) {
-  companies.selectCoNames(function(err, data) {
+app.get('/users', function (req, res) {
+  db.userQuery(function(err, data) {
     if (err) {
-      res.sendStatus(500)
+      res.sendStatus(500);
     } else {
       res.json(data);
     }
-  });
-});
+  })
+})
 
 app.listen(4568, function() {
   console.log('Known Project is listening on 4568');
