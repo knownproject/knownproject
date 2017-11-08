@@ -18,7 +18,7 @@ app.get('/companies', function (req, res) {
   });
 });
 
-app.get('/names', function(req, res) {
+app.get('/companyNames', function(req, res) {
   companies.selectCoNames(function(err, data) {
     if (err) {
       res.sendStatus(500)
