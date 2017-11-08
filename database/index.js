@@ -6,8 +6,8 @@ var connection = mysql.createConnection({
   database: 'known'
 });
 
-var selectAll = function(callback) {
-  connection.query('SELECT * FROM companies ORDER BY name LIMIT 50', function(err, results, fields) {
+var db_query = function(limit, callback) {
+  connection.query('SELECT * FROM companies ORDER BY count DESC LIMIT ' + limit, function(err, results, fields) {
     if (err) {
       console.log('ERROR: ', err)
       callback(err, null)
@@ -32,4 +32,4 @@ var selectCoNames = function(callback) {
 // }
 
 module.exports.selectCoNames = selectCoNames;
-module.exports.selectAll = selectAll;
+module.exports.db_query = db_query;

@@ -9,7 +9,8 @@ app.use(express.static(path.join(__dirname, '../react-client/dist/')));
 app.use(bodyParser.json());
 
 app.get('/companies', function (req, res) {
-  companies.selectAll(function(err, data) {
+  var limit = req.query.limit || 50;
+  companies.db_query(limit, function(err, data) {
     if(err) {
       res.sendStatus(500);
     } else {

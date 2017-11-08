@@ -43,11 +43,11 @@ class App extends React.Component {
       return (
         <div>
           <Search />
-          <CompanyList 
+          <CompanyList
             companies={this.state.companies}
             handleCompanyItemClick={this.handleCompanyItemClick}
           />
-          <CompanyProfile 
+          <CompanyProfile
             currentCompany={this.state.currentCompany}
           />
         </div>
@@ -56,7 +56,7 @@ class App extends React.Component {
       return (
         <div>
           <Search />
-          <CompanyList 
+          <CompanyList
             companies={this.state.companies}
             handleCompanyItemClick={this.handleCompanyItemClick}
           />
@@ -67,4 +67,3 @@ class App extends React.Component {
 }
 
 export default App;
-
