@@ -11,7 +11,8 @@ app.use(bodyParser.json());
 app.get('/companies', function (req, res) {
   var limit = req.query.limit || 50;
   var searchText = req.query.searchText || null;
-  db.companyQuery(limit, searchText, function(err, data) {
+  var tagCategory = req.query.tagCategory || null;
+  db.companyQuery(limit, searchText, tagCategory, function(err, data) {
     if (err) {
       res.sendStatus(500);
     } else {
