@@ -1,8 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import $ from 'jquery';
 import CompanyList from './CompanyList.jsx';
 import Search from './Search.jsx';
 import CompanyProfile from './CompanyProfile.jsx';
+import Login from './Login.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -74,7 +77,7 @@ class App extends React.Component {
         // console.log('ajax success data: ', data)
         context.setState({
           companies: data,
-          currentCompany: data[0]
+          currentCompany: null
         })
       },
       error: (err) => {
@@ -84,36 +87,30 @@ class App extends React.Component {
   }
 
   render() {
-    if(this.state.currentCompany) {
-      return (
-        <div>
-          <Search
-            handleSearchInputChange={this.handleSearchInputChange}
-          />
-          <CompanyList
-            companies={this.state.companies}
-            handleCompanyItemClick={this.handleCompanyItemClick}
-          />
-          <CompanyProfile
-            handleTagClick={this.handleTagClick}
-            currentCompany={this.state.currentCompany}
-          />
+
+    return (
+      <div>
+        <div className="jumbotron">
+          <h1 className="title">The Known Project</h1>
+          <p>...and if you don't know, now you Known....</p>
         </div>
-      );
-    } else {
-      return (
-        <div>
-          <Search
-            handleSearchInputChange={this.handleSearchInputChange}
+
+        <Search
+          handleSearchInputChange={this.handleSearchInputChange}
+        />
+
+        <CompanyList
+          companies={this.state.companies}
+          handleCompanyItemClick={this.handleCompanyItemClick}
+        />
+
+        {this.state.currentCompany ? <CompanyProfile handleTagClick={this.handleTagClick} currentCompany={this.state.currentCompany}
           />
-          <CompanyList
-            companies={this.state.companies}
-            handleCompanyItemClick={this.handleCompanyItemClick}
-          />
-        </div>
+          : null}
+      </div>
       );
     }
-  }
+
 }
 
 export default App;
