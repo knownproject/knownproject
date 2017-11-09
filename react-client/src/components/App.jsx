@@ -33,7 +33,7 @@ class App extends React.Component {
         tagCategory: tagButton,
       },
       success: (data) => {
-        // console.log('ajax success data: ', data)
+        console.log('ajax success data: ', data)
         context.setState({
           companies: data,
           currentCompany: data[0]

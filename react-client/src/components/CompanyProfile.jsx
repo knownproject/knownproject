@@ -1,7 +1,7 @@
 import React from 'react';
 
 var CompanyProfile = (props) => (
-  console.log('profile props: ', props),
+  // console.log('profile props: ', props),
   <div className="company-profile">
     <div>
       <h3 className="company-profile-name">
@@ -28,6 +28,8 @@ var CompanyProfile = (props) => (
             (<button onClick={() => props.handleTagClick(tag)} key={i}>{tag}</button>)
         )}
       </li>
+
+      <button onClick={() => props.handleTagClick(null)}>Reset</button>
 
     </div>
   </div>
