@@ -14,17 +14,21 @@ app.use(session ({
 }));
 
 app.get('/companies', function (req, res) {
+  if (!req.query.searchText && !req.query.tagCategory) {
+    db.Company.getAllCompanies()
+      .then(function(data) {
+      // console.log('promise data line 24', data);
+      res.status(201);
+      res.json(data);
+    })
+    .catch(function(err) {res.sendStatus(500)})
+  }
   var searchParams = {};
-  // var searchParams = {limit: 500, searchText: 'tech', tagCategory: 'software'};
 
-  console.log('req query: ', req.query)
+  // console.log('req query: ', req.query)
   searchParams.limit = req.query.limit || 500;
   searchParams.searchText = req.query.searchText;
   searchParams.tagCategory = req.query.tagCategory;
-  searchParams.findAll = 'xsdlfkjdsklfjsdfj'
-  if(!req.query.searchText && !req.query.tagCategory) {
-    searchParams.findAll = '';
-  }
   db.Company.companyQuery(searchParams)
   .then(function(data) {
     // console.log('promise data line 24', data);

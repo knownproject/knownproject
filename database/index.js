@@ -12,17 +12,20 @@ var User = {};
 var Company = {};
 
 Company.companyQuery = function(searchParams) {
-  
+
   console.log('searchPArams',searchParams);
   
   return knex('companies')
     .where('category_list', 'like', `%${searchParams.searchText}%`)
     .orWhere('category_list', 'like', `%${searchParams.tagCategory}%`)
     .orWhere('name', 'like', `%${searchParams.searchText}%`)
-    .orWhere('name', 'like', `%${searchParams.findAll}%`)
     .orderBy('count', 'desc')
     .limit(searchParams.limit);
 };
+
+Company.getAllCompanies = function() {
+  return knex('companies');
+}
 
 User.createUser = function(userData) {
   console.log(userData);
