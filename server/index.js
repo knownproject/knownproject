@@ -31,6 +31,26 @@ app.get('/users', function (req, res) {
   })
 })
 
+app.post('/users', function(req, res) {
+  db.userQuery(function(err, data) {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+
+    }
+  })
+})
+
 app.listen(4568, function() {
   console.log('Known Project is listening on 4568');
 });
+
+
+
+
+
+
+
+
+
+

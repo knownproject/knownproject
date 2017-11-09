@@ -26,7 +26,7 @@ var companyQuery = function(limit, searchText, tagCategory, callback) {
 };
 
 var userQuery = function(callback) {
-
+  var queryString = `INSERT INTO users ()`
 }
 
 var createUser = function(callback) {
