@@ -4,13 +4,11 @@ import $ from 'jquery';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       value: ''
     };
   }
 
-  // alter this to work with data
   handleInputChange(e) {
     this.props.handleSearchInputChange(e.target.value);
     this.setState({
@@ -26,7 +24,7 @@ class Search extends React.Component {
           value={this.state.value}
           onChange={this.handleInputChange.bind(this)}
         />
-        <button></button>
+        <button>Search</button>
        </div>
     );
   }

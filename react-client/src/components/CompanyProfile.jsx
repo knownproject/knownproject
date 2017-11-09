@@ -1,7 +1,7 @@
 import React from 'react';
 
 var CompanyProfile = (props) => (
-  console.log('profile props: ', props.currentCompany),
+  // console.log('profile props: ', props.currentCompany),
   <div className="company-profile">
     <div>
       <h3 className="company-profile-name">
