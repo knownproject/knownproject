@@ -13,6 +13,7 @@ class App extends React.Component {
       currentCompany: null
     }
     this.handleCompanyItemClick = this.handleCompanyItemClick.bind(this);
+    this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
   }
 
   handleCompanyItemClick(company) {
@@ -21,15 +22,33 @@ class App extends React.Component {
     });
   }
 
-  componentDidMount() {
+  handleSearchInputChange(searchInput) {
     var context = this;
     $.ajax({
       url: '/companies',
       data: {
-        searchText: 'tech',
+        searchText: searchInput,
       },
       success: (data) => {
-        console.log('ajax success data: ',data)
+        // console.log('ajax success data: ', data)
+        context.setState({
+          companies: data,
+          currentCompany: data[0]
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+  }
+
+  componentDidMount() {
+    var context = this;
+    $.ajax({
+      url: '/companies',
+      data: {},
+      success: (data) => {
+        // console.log('ajax success data: ', data)
         context.setState({
           companies: data,
           currentCompany: data[0]
@@ -45,7 +64,9 @@ class App extends React.Component {
     if(this.state.currentCompany) {
       return (
         <div>
-          <Search />
+          <Search
+            handleSearchInputChange={this.handleSearchInputChange}
+          />
           <CompanyList
             companies={this.state.companies}
             handleCompanyItemClick={this.handleCompanyItemClick}
@@ -58,7 +79,9 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <Search />
+          <Search
+            handleSearchInputChange={this.handleSearchInputChange}
+          />
           <CompanyList
             companies={this.state.companies}
             handleCompanyItemClick={this.handleCompanyItemClick}
