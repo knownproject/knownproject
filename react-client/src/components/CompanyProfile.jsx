@@ -1,7 +1,7 @@
 import React from 'react';
 
 var CompanyProfile = (props) => (
-  // console.log('profile props: ', props.currentCompany),
+  console.log('profile props: ', props),
   <div className="company-profile">
     <div>
       <h3 className="company-profile-name">
@@ -25,7 +25,7 @@ var CompanyProfile = (props) => (
         {(props.currentCompany.category_list)
           .split('|')
           .map((tag, i) => 
-            (<button key={i}>{tag}</button>)
+            (<button onClick={() => props.handleTagClick(tag)} key={i}>{tag}</button>)
         )}
       </li>
 

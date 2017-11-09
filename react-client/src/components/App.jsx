@@ -12,6 +12,8 @@ class App extends React.Component {
       companies: [],
       currentCompany: null
     }
+
+    this.handleTagClick = this.handleTagClick.bind(this);
     this.handleCompanyItemClick = this.handleCompanyItemClick.bind(this);
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
   }
@@ -19,6 +21,27 @@ class App extends React.Component {
   handleCompanyItemClick(company) {
     this.setState({
       currentCompany: company
+    });
+  }
+
+  handleTagClick(tagButton) {
+    console.log('clicked');
+    var context = this;
+    $.ajax({
+      url: '/companies',
+      data: {
+        tagCategory: tagButton,
+      },
+      success: (data) => {
+        // console.log('ajax success data: ', data)
+        context.setState({
+          companies: data,
+          currentCompany: data[0]
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
     });
   }
 
@@ -72,6 +95,7 @@ class App extends React.Component {
             handleCompanyItemClick={this.handleCompanyItemClick}
           />
           <CompanyProfile
+            handleTagClick={this.handleTagClick}
             currentCompany={this.state.currentCompany}
           />
         </div>
