@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, '../react-client/dist/')));
 app.use(bodyParser.json());
 
 app.get('/companies', function (req, res) {
-  var limit = req.query.limit || 50;
+  var limit = req.query.limit || 500;
   var searchText = req.query.searchText || null;
   var tagCategory = req.query.tagCategory || null;
   db.companyQuery(limit, searchText, tagCategory, function(err, data) {
