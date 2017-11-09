@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 var companyQuery = function(limit, searchText, tagCategory, callback) {
   var searchString = `SELECT * FROM companies `;
   if (searchText) {
-    searchString += `WHERE name LIKE "%${searchText}%" `;
+    searchString += `WHERE name LIKE "%${searchText}%" OR category_list LIKE "%${searchText}%" `;
   }
   if (tagCategory) {
     searchString += `WHERE category_list LIKE "%${tagCategory}%" `;
