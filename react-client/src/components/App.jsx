@@ -6,6 +6,9 @@ import CompanyList from './CompanyList.jsx';
 import Search from './Search.jsx';
 import CompanyProfile from './CompanyProfile.jsx';
 import Login from './Login.jsx';
+import CompanySearch from './CompanySearch.jsx';
+import ListCompany from './ListCompany.jsx';
+import CompProf from './CompProf.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -95,16 +98,16 @@ class App extends React.Component {
           <p>...and if you don't know, now you Known....</p>
         </div>
 
-        <Search
+        <CompanySearch
           handleSearchInputChange={this.handleSearchInputChange}
         />
 
-        <CompanyList
+        <ListCompany
           companies={this.state.companies}
           handleCompanyItemClick={this.handleCompanyItemClick}
         />
 
-        {this.state.currentCompany ? <CompanyProfile handleTagClick={this.handleTagClick} currentCompany={this.state.currentCompany}
+        {this.state.currentCompany ? <CompProf handleTagClick={this.handleTagClick} currentCompany={this.state.currentCompany}
           />
           : null}
       </div>
