@@ -1,37 +1,36 @@
-var mysql = require('mysql');
-
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'known'
+var knex = require('knex')({
+  client: 'mysql',
+  connection: {
+    host : '127.0.0.1',
+    user : 'root',
+    password : '',
+    database : 'known'
+  }
 });
 
-var companyQuery = function(limit, searchText, tagCategory, callback) {
-  var searchString = `SELECT * FROM companies `;
-  if (searchText) {
-    searchString += `WHERE name LIKE "%${searchText}%" OR category_list LIKE "%${searchText}%" `;
-  }
-  if (tagCategory) {
-    searchString += `WHERE category_list LIKE "%${tagCategory}%" `;
-  }
-  searchString += `ORDER BY count DESC LIMIT ${limit};`
-  connection.query(searchString, function(err, results, fields) {
-    if (err) {
-      console.log('ERROR: ', err)
-      callback(err, null)
-    } else {
-      callback(null, results)
-    }
-  });
+var User = {};
+var Company = {};
+
+Company.companyQuery = function(searchParams) {
+
+  console.log('searchPArams',searchParams);
+  
+  return knex('companies')
+    .where('category_list', 'like', `%${searchParams.searchText}%`)
+    .orWhere('category_list', 'like', `%${searchParams.tagCategory}%`)
+    .orWhere('name', 'like', `%${searchParams.searchText}%`)
+    .orderBy('count', 'desc')
+    .limit(searchParams.limit);
 };
 
-var userQuery = function(callback) {
-
+Company.getAllCompanies = function() {
+  return knex('companies');
 }
 
-var createUser = function(callback) {
-
+User.createUser = function(userData) {
+  console.log(userData);
+  return knex('users').insert({username: userData.username, password: userData.password})
 }
 
-module.exports.companyQuery = companyQuery;
-module.exports.userQuery = userQuery;
+module.exports.User = User;
+module.exports.Company = Company;
