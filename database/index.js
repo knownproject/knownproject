@@ -13,7 +13,7 @@ var Company = {};
 
 Company.companyQuery = function(searchParams) {
 
-  console.log('searchPArams',searchParams);
+  console.log('searchParams',searchParams);
   
   return knex('companies')
     .where('category_list', 'like', `%${searchParams.searchText}%`)
