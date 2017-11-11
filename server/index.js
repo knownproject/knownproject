@@ -35,7 +35,10 @@ app.get('/companies', function (req, res) {
     res.status(201);
     res.json(data);
   })
-  .catch(function(err) {res.sendStatus(500)})
+  .catch(function(err) {
+    console.log('Error in company query. server/index.js line 39', err);
+    res.sendStatus(500);
+  })
 });
 
 app.get('/users', function (req, res) {
