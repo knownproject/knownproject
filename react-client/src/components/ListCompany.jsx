@@ -32,10 +32,11 @@ const rightIconMenu = (
 );
 
 const ListCompany = (props) => (
-  console.log('props: ', props),
   <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-    <List>
-      <ListItem onClick={() => props.handleCompanyItemClick(props.companyObj)} primaryText={props.company} />
+    <List className="company-list">
+      {props.companies.map((company) =>
+      <ListItem onClick={() => props.handleCompanyItemClick(company)} primaryText={company.name} />
+    )}
     </List>
   </MuiThemeProvider>
 );

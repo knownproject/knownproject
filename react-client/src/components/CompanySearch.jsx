@@ -11,6 +11,7 @@ class CompanySearch extends React.Component {
     this.state = {
       value: ''
     };
+    console.log('SEARCH: ', props);
   }
 
   handleInputChange(e) {
@@ -22,8 +23,9 @@ class CompanySearch extends React.Component {
 
   render() {
     return (
+      // console.log('SEARCH PROPS: ', props),
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <div className="SearchBar">
+        <div className="search-bar">
           <TextField
             hintText="Search"
             value={this.state.value}

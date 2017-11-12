@@ -5,8 +5,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 const style = {
-  height: 450,
-  width: 600,
+  height: 460,
+  width: 650,
   margin: 20,
   textAlign: 'center',
   display: 'inline-block',

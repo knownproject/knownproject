@@ -6,6 +6,10 @@
 	margin-right: 50px;
 }
 
+div.search-bar {
+  margin: 0;
+}
+
 /*.login-dark {
   height:1000px;
   /*background:#475d62 url(star-sky.jpg);

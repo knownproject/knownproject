@@ -9,6 +9,7 @@ import Login from './Login.jsx';
 import CompanySearch from './CompanySearch.jsx';
 import ListCompany from './ListCompany.jsx';
 import CompProf from './CompProf.jsx';
+import AppBar from './AppBarTest.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class App extends React.Component {
 
   handleCompanyItemClick(company) {
     this.setState({
-      currentCompany: company
+      currentCompany: company,
     });
   }
 
@@ -93,12 +94,12 @@ class App extends React.Component {
 
     return (
       <div>
-        <div className="jumbotron">
-          <h1 className="title">The Known Project</h1>
-          <p>...and if you don't know, now you Known....</p>
-        </div>
+        <AppBar />
 
         <CompanySearch
+          style={{
+            width: '15%',
+          }}
           handleSearchInputChange={this.handleSearchInputChange}
         />
 
