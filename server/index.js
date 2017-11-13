@@ -18,7 +18,6 @@ app.get('/companies', function (req, res) {
     db.Company.getAllCompanies()
       .then(function(data) {
       // console.log('promise data line 24', data);
-      res.status(201);
       res.json(data);
     })
     .catch(function(err) {res.sendStatus(500)})
@@ -32,7 +31,6 @@ app.get('/companies', function (req, res) {
   db.Company.companyQuery(searchParams)
   .then(function(data) {
     // console.log('promise data line 24', data);
-    res.status(201);
     res.json(data);
   })
   .catch(function(err) {
