@@ -35,7 +35,7 @@ const ListCompany = (props) => (
   <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
     <List className="company-list">
       {props.companies.map((company) =>
-      <ListItem onClick={() => props.handleCompanyItemClick(company)} primaryText={company.name} />
+      <ListItem className="list-item" onClick={() => props.handleCompanyItemClick(company)} primaryText={company.name} />
     )}
     </List>
   </MuiThemeProvider>

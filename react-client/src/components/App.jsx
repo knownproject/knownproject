@@ -10,6 +10,8 @@ import CompanySearch from './CompanySearch.jsx';
 import ListCompany from './ListCompany.jsx';
 import CompProf from './CompProf.jsx';
 import AppBar from './AppBarTest.jsx';
+import ReactLogin from './ReactLogin.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -97,9 +99,6 @@ class App extends React.Component {
         <AppBar />
 
         <CompanySearch
-          style={{
-            width: '15%',
-          }}
           handleSearchInputChange={this.handleSearchInputChange}
         />
 

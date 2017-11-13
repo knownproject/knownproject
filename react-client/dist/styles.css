@@ -1,14 +1,31 @@
+body {
+   display: block;
+   margin: 0;
+ }
+
 .company-list {
 	float: left;
 	overflow: scroll;
 	height: 614px;
-	width: 20%;
+	width: 21%;
 	margin-right: 50px;
 }
 
-div.search-bar {
-  margin: 0;
+span.list-item {
+  border-bottom: 1px solid black;
 }
+
+div.search-bar {
+  margin-left: 8px;
+  /*width: 20%;
+  z-index: 1200;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;*/
+}
+
+/*.company-list {
+  z-index: 1200;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
+}*/
 
 /*.login-dark {
   height:1000px;
