@@ -13,6 +13,7 @@ const style = {
 };
 
 const CompProf = (props) => (
+  console.log(props.currentCompany.homepage_domain),
   <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
     <div>
       <Paper style={style} zDepth={2}>
@@ -20,7 +21,7 @@ const CompProf = (props) => (
           {props.currentCompany.name}
         </h2>
 
-
+          <img src={"https://logo.clearbit.com/" + props.currentCompany.homepage_domain} />
           <h4>What we do: {props.currentCompany.short_description}</h4>
           <h5>Homepage: {props.currentCompany.homepage_url}</h5>
 
