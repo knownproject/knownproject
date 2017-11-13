@@ -7,7 +7,6 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 
 const style = {
-  height: 460,
   width: 650,
   padding: 20,
   margin: 20,
