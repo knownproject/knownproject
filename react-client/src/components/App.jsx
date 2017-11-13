@@ -98,6 +98,10 @@ class App extends React.Component {
       <div>
         <AppBar />
 
+        <div className="jumbotron">
+          <h4 className="subtitle">...and if you don't know, now you Known....</h4>
+        </div>
+
         <CompanySearch
           handleSearchInputChange={this.handleSearchInputChange}
         />
@@ -110,6 +114,7 @@ class App extends React.Component {
         {this.state.currentCompany ? <CompProf handleTagClick={this.handleTagClick} currentCompany={this.state.currentCompany}
           />
           : null}
+
       </div>
       );
     }

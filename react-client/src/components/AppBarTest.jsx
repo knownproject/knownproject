@@ -1,7 +1,7 @@
 import React from 'react';
-import {teal300} from 'material-ui/styles/colors';
-import {teal200} from 'material-ui/styles/colors';
-import {red500} from 'material-ui/styles/colors';
+import {blueGrey500} from 'material-ui/styles/colors';
+import {blueGrey700} from 'material-ui/styles/colors';
+import {brown100} from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
 import home from 'material-ui/svg-icons/alert/error';
 import FlatButton from 'material-ui/FlatButton';
@@ -13,23 +13,25 @@ import ReactLogin from './ReactLogin.jsx';
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: teal300,
-    accent1Color: teal200,
+    primary1Color: blueGrey700,
+    accent1Color: blueGrey500,
+    alternateTextColor: brown100,
   },
   appBar: {
-    height: 90,
+    height: 70,
   },
 });
 
 const AppBarTest = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <AppBar
-      title="The Known Project"
+      title="The Known Project" subtitle=""
       // iconClassNameRight="AccountCircle"
       // iconClassNameRight="muidocs-icon-navigation-expand-more"
       iconElementRight={<ReactLogin secondary={true} label="LOG IN" />}
       style={{
         textAlign: 'center',
+
       }}
     />
   </MuiThemeProvider>
