@@ -40,6 +40,7 @@ const CompProf = (props) => (
               (<button onClick={() => props.handleTagClick(tag)} key={i}>{tag}</button>)
           )}
         </li>
+        <button onClick={() => props.handleTagClick(null)}>Reset</button>
       </Paper>
     </div>
   </MuiThemeProvider>
