@@ -21,22 +21,22 @@ app.get('/companies', function (req, res) {
       res.json(data);
     })
     .catch(function(err) {res.sendStatus(500)})
+  } else {
+    var searchParams = {};
+    // console.log('req query: ', req.query)
+    searchParams.limit = req.query.limit || 500;
+    searchParams.searchText = req.query.searchText;
+    searchParams.tagCategory = req.query.tagCategory;
+    db.Company.companyQuery(searchParams)
+    .then(function(data) {
+      // console.log('promise data line 24', data);
+      res.json(data);
+    })
+    .catch(function(err) {
+      console.log('Error in company query. server/index.js line 39', err);
+      res.sendStatus(500);
+    })
   }
-  var searchParams = {};
-
-  // console.log('req query: ', req.query)
-  searchParams.limit = req.query.limit || 500;
-  searchParams.searchText = req.query.searchText;
-  searchParams.tagCategory = req.query.tagCategory;
-  db.Company.companyQuery(searchParams)
-  .then(function(data) {
-    // console.log('promise data line 24', data);
-    res.json(data);
-  })
-  .catch(function(err) {
-    console.log('Error in company query. server/index.js line 39', err);
-    res.sendStatus(500);
-  })
 });
 
 app.get('/users', function (req, res) {
