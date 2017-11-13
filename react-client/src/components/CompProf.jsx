@@ -37,7 +37,7 @@ const CompProf = (props) => (
           {(props.currentCompany.category_list)
             .split('|')
             .map((tag, i) =>
-              (<button key={i}>{tag}</button>)
+              (<button onClick={() => props.handleTagClick(tag)} key={i}>{tag}</button>)
           )}
         </li>
       </Paper>
