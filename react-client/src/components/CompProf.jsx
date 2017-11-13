@@ -24,33 +24,32 @@ const CompProf = (props) => (
         <h2 className="company-profile-name">
           {props.currentCompany.name}
         </h2>
-
-          <img src={"https://logo.clearbit.com/" + props.currentCompany.homepage_domain} />
+          <a href={props.currentCompany.homepage_url} target="_blank">
+            <img src={"https://logo.clearbit.com/" + props.currentCompany.homepage_domain} />
+          </a>
           <h4>What we do: {props.currentCompany.short_description}</h4>
-          <h5>Homepage: {props.currentCompany.homepage_url}</h5>
 
           {!!(props.currentCompany.linkedin_url) &&
-            <a href={props.currentCompany.linkedin_url}>
+            <a href={props.currentCompany.linkedin_url} target="_blank">
               <img src="/link.png
               " />
             </a>
           }
 
           {!!(props.currentCompany.twitter_url) &&
-            <a href={props.currentCompany.twitter_url}>
+            <a href={props.currentCompany.twitter_url} target="_blank">
               <img src="/twitter.png" />
             </a>
           }
 
           {!!(props.currentCompany.facebook_url) &&
-            <a href={props.currentCompany.facebook_url}>
+            <a href={props.currentCompany.facebook_url} target="_blank">
               <img src="/facebook.png" />
             </a>
           }
 
-          <h5>City: {props.currentCompany.location_city}</h5>
           <h5>State: {props.currentCompany.location_region}</h5>
-          <h6>Funding total (2015): {props.currentCompany.funding_total_usd}</h6>
+          <h6>Funding total (2015): ${props.currentCompany.funding_total_usd}</h6>
           <h6>Most recent funding: {props.currentCompany.last_funding_at}</h6>
 
 
