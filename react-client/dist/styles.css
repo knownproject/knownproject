@@ -1,6 +1,12 @@
 body {
    display: block;
    margin: 0;
+   background-image: url('https://i.imgur.com/hCaLgOE.jpg');
+   opacity:0.9;
+   background-size: auto;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: 100%;
  }
 
 .company-list {
@@ -97,20 +103,25 @@ div.search-bar {
 
 .login-dark form .btn-primary:active {
   transform:translateY(1px);
-}
-
+}*/
 .jumbotron {
-  background-image: url('https://i.imgur.com/hCaLgOE.jpg');
+  /*background-image: url('https://i.imgur.com/hCaLgOE.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
-  padding-top:0px;
-  padding-bottom:161px;
-  background-position: center;
-  padding-right:0px;
+  background-repeat: no-repeat;*/
+  padding-top:5px;
+  padding-bottom:15px;
+  /*background-position: center;*/
+  padding-right:25px;
   margin:0px;
-  padding-left:27px;
+  padding-left:0px;
 }
 
 .jumbotron .title {
   margin: 0px;
-}*/
+  text-align: center;
+}
+
+.jumbotron .subtitle {
+  margin: 0px;
+  text-align: center;
+}

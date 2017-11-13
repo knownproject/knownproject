@@ -3,14 +3,18 @@ import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
 const style = {
   height: 460,
   width: 650,
+  padding: 20,
   margin: 20,
   textAlign: 'center',
   display: 'inline-block',
 };
+
 
 const CompProf = (props) => (
   console.log(props.currentCompany.homepage_domain),
